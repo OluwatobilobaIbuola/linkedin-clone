@@ -150,15 +150,19 @@ function Login() {
               placeholder="Email"
               type="email"
             />
-           
             <input
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Password"
               type="password"
-              onFocus={setPasswordFocus(true)}
-              onBlur={setPasswordFocus(false)}
+              onFocus={() => setPasswordFocus(true)}
+              onBlur={() => setPasswordFocus(false)}
             />
+            { (passwordFocus && !validPassword) && 
+            <ErrMsg id="pwdnote">
+              <PriorityHighIcon/>
+              Must include atleast uppercase and lowercase letters, a number and a special character.<br />
+            </ErrMsg>}
             <button type="submit" onClick={loginToApp}>
               Sign In
             </button>
@@ -185,19 +189,27 @@ function Login() {
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Password"
               type="password"
-              onFocus={setPasswordFocus(true)}
-              onBlur={setPasswordFocus(false)}
+              onFocus={() => setPasswordFocus(true)}
+              onBlur={() => setPasswordFocus(false)}
             />
-
+            { (passwordFocus && !validPassword) && 
+            <ErrMsg id="pwdnote">
+              <PriorityHighIcon/>
+              Must include atleast uppercase and lowercase letters, a number and a special character.<br />
+            </ErrMsg>}
             <input
               value={matchPassword}
               onChange={(e) => setMatchPassword(e.target.value)}
               placeholder="Confirm Password"
               type="password"
-              onFocus={setMatchFocus(true)}
-              onBlur={setMatchFocus(false)}
+              onFocus={() => setMatchFocus(true)}
+              onBlur={() => setMatchFocus(false)}
             />
-            {}
+            { (matchFocus && !validMatch) && 
+            <ErrMsg id="pwdnote">
+              <PriorityHighIcon/>
+              Must include atleast uppercase and lowercase letters, a number and a special character.<br />
+            </ErrMsg>}
             <button type="submit" onClick={register}>
               Register
             </button>

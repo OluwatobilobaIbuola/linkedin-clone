@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { selectUser } from "../features/userSlice";
 import { Avatar } from "@mui/material";
 import Badge from '@mui/material/Badge';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 
 
 
@@ -21,7 +22,7 @@ function HeaderOption ({Icon, title, avatar, logoutOfApp }) {
                     <Avatar alt="" src="" onClick={logoutOfApp}>{user?.email[0]}</Avatar>
             </Badge>
             }
-            <p>{title}</p>
+            <p>{title} {avatar && <ArrowDropDownIcon/>}</p>
         </OptionStyled> 
     )
 }
@@ -40,5 +41,13 @@ const OptionStyled = styled.div`
       :hover{
           color:black;
       }
+    }
+    p{
+        display:flex;
+        align-items:center;
+    }
+    .MuiAvatar-root{
+        width:25px;
+        height:25px;
     }
 `
