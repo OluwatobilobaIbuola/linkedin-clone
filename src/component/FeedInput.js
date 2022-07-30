@@ -42,8 +42,15 @@ function FeedInput() {
     <FeedInputStyled>
         <InputContainer>
             <Avatar src="" alt="">{user?.email[0]}</Avatar>
-            <form onSubmit={handleSubmit}>
-                <input value={input} onChange={(e) => {setInput(e.target.value)}}type="text" placeholder="Start a post"/>
+            <form data-test="form-data" onSubmit={handleSubmit}>
+                <input 
+                    id="Post"
+                    label="Post"
+                    type="text" 
+                    value={input} 
+                    onChange={(e) => {setInput(e.target.value)}}
+                    placeholder="Start a post"
+                />
             </form>
         </InputContainer>
         <InputOptionsStyled>
@@ -94,6 +101,9 @@ const InputContainer = styled.div`
                 background-color:lightgray;
             }
         } 
+        > button{
+            display:none;
+        }
     }
 `
 const InputOptionsStyled = styled.div`
