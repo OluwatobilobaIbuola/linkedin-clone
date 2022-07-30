@@ -66,8 +66,16 @@ export default App;
 
 const AppBody = styled.div`
   display:flex;
+  justify-content:center;
   padding-top:2em;
   column-gap:1.5em;
+  row-gap:1.5em;
   width:min(95%, 88em);
   margin-inline:auto;
+  @media (max-width:768px){
+    flex-direction:column;
+    align-items:center;
+    width:min(95%, 550px);
+    margin-inline:auto;
+  }
 `

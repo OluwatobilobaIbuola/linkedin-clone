@@ -22,6 +22,7 @@ function Footer() {
 export default Footer
 
 const FooterContainer = styled.div`
+    white-space:nowrap;
     display:flex;
     flex-direction:column;
     row-gap:1em;

@@ -33,6 +33,10 @@ const WidgetStyled = styled.div`
     align-self: flex-start;
     position:sticky;
     top:80px;
+    @media (max-width:992px){
+      display:none;
+      flex:unset;
+    }
 `
 const WidgetTop = styled.div`
     height: fit-content;

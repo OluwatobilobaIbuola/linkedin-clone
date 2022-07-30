@@ -94,11 +94,21 @@ function Sidebar() {
 export default Sidebar
 
 const SidebarStyled = styled.div`
+    width:100%;
     align-self: flex-start;
-    flex:0.25;
+    flex:0.2;
     color:gray;
     position:sticky;
     top:80px;
+    @media (max-width:992px){
+        flex:0.3;
+    }
+    @media (max-width:768px){
+        align-self: unset;
+        position:unset;
+        top:unset;
+        flex:unset;
+    }
 `
 const Image = styled.img`
     object-fit:cover;
@@ -107,6 +117,12 @@ const Image = styled.img`
     margin-bottom:-25px;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
+`
+const SidebarTop = styled.div`
+    background-color:white;
+    border:1px solid lightgray;
+    border-radius:8px;
+    width:100%;
 `
 const SidebarProfile = styled.div`
     h2{
@@ -122,25 +138,29 @@ const SidebarProfile = styled.div`
         width:50px;
         height:50px;
     }
+    @media (max-width:992px){
+      
+    }
 `
 const SidebarProfileText = styled.div`
     padding:10px 12px;
 
-`
-const SidebarTop = styled.div`
-    background-color:white;
-    border:1px solid lightgray;
-    border-radius:8px;
 `
 const SidebarBottom = styled.div`
     background-color:white;
     margin-top:1em;
     border-radius:8px;
     border:1px solid lightgray;
+    @media (max-width:768px){
+        display:none; 
+    }
 `
 const SidebarStats = styled.div`
     border-top:1px solid lightgray;
     padding:10px 12px;
+    @media (max-width:768px){
+        display:none; 
+    }
 `
 const SidebarFlex = styled.div`
     display:flex;
@@ -170,6 +190,9 @@ const SidebarPlan = styled.div`
     :hover{
         background-color:whitesmoke;
     }
+    @media (max-width:768px){
+        display:none; 
+    }
 `
 const SidebarItems = styled.div`
     color:#58595B;
@@ -183,6 +206,9 @@ const SidebarItems = styled.div`
     }
     :hover{
         background-color:whitesmoke;
+    }
+    @media (max-width:768px){
+        display:none; 
     }
 `
 const SidebarBlack = styled.strong`

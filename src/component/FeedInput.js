@@ -99,6 +99,12 @@ const InputContainer = styled.div`
 const InputOptionsStyled = styled.div`
     margin-top:1em;
     display:flex;
-    justify-content: space-between;
+    justify-content: center;
+    column-gap:1rem;
     padding:0 1em;
+    align-content:center;
+    @media screen and (max-width:768px){
+        flex-wrap:wrap;
+        padding:0 0.2em;
+    }
 `

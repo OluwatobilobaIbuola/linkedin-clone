@@ -16,6 +16,7 @@ import { auth } from '../firebase';
 
 
 
+
 function Header() {
   const dispatch = useDispatch();
 
@@ -25,8 +26,8 @@ function Header() {
   };
 
   return (
+    <HeaderContainer>
     <HeaderStyled>
-      <div>
         <HeaderLeft>
           <LinkedInIcon/>
           <SearchStyled>
@@ -36,9 +37,9 @@ function Header() {
         </HeaderLeft>
         <HeaderRight>
           <HeaderRightOne>
-            <HeaderOption Icon={HomeIcon} title="Home" />
-            <HeaderOption Icon={SupervisorAccountIcon} title="My Network" />
-            <HeaderOption Icon={BusinessCenterIcon} title="Jobs" />
+            <HeaderOption show Icon={HomeIcon} title="Home" />
+            <HeaderOption show Icon={SupervisorAccountIcon} title="My Network" />
+            <HeaderOption show Icon={BusinessCenterIcon} title="Jobs" />
             <HeaderOption Icon={ChatIcon} title="Messaging" />
             <HeaderOption Icon={NotificationsIcon} title="Notifications" />
             <HeaderOption avatar={true} logoutOfApp={logoutOfApp} title="me"/>
@@ -48,28 +49,30 @@ function Header() {
             <HeaderOption Icon={SlideshowIcon} title="Learning" />
           </HeaderRightTwo>
         </HeaderRight>
-      </div>
     </HeaderStyled>
+    </HeaderContainer>
   );
 }
 
 export default Header;
 
-
-const HeaderStyled = styled.div`
- 
-  div{
-    display: flex;
-    align-items:center;
-    max-width:120em;
-    margin-inline:auto;
-  }
+const HeaderContainer = styled.div`
+  background-color:white;
   position:sticky;
   top:0;
   z-index:999;
+`
+const HeaderStyled = styled.div`
+  display: flex;
+  align-items:center;
+  width:90%;
+  margin-inline:auto;
   color:gray;
-  background-color:white;
   white-space:nowrap;
+  @media screen and (max-width:992px){
+    width:95%;
+  }
+
 `
 
 const SearchStyled = styled.div`
@@ -79,12 +82,18 @@ const SearchStyled = styled.div`
   padding:15px;
   border-radius:5px;
   background-color:#eef3f8;
+  @media (max-width:992px){
+    width:fit-content;
+  }
 
   input{
     outline:none;
     border:none;
     padding:5px;
     background-color:transparent;
+    @media (max-width:992px){
+      display:none; 
+    }
   }
 `
 
@@ -97,12 +106,19 @@ const HeaderRightOne = styled.div`
   padding:5px 20px;
   display: flex;
   column-gap:2em;
+  @media screen and (max-width:768px){
+    column-gap:1rem;
+  }
 `
 const HeaderRightTwo = styled.div`  
   display: flex;
   column-gap:2em;
   padding:5px 20px;
   border-left:1px solid gray;
+  @media screen and (max-width:768px){
+    column-gap:1rem;
+    display:none;
+  }
 `
 const HeaderLeft = styled.div`
   display: flex;
@@ -113,5 +129,4 @@ const HeaderLeft = styled.div`
     font-size:3rem;
     margin-right:0.1em;
   }
-  
 `

@@ -48,6 +48,15 @@ useEffect(() => {
 export default Feed
 
 const FeedStyled = styled.div`
+    width:100%;
     white-space:nowrap;
     flex:0.5;
+    @media (max-width:992px){
+        flex:0.7;
+
+    }
+    @media (max-width:768px){
+        flex:1;
+        white-space:normal;
+    }
 `
